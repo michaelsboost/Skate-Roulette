@@ -1,0 +1,113 @@
+/* Defaults */
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: url("../imgs/bg.svg") calc(100vw/10) 40px no-repeat;
+  background-size: 230px;
+}
+html:before {
+  content: "";
+  position: relative;
+  display: block;
+  margin-bottom: -12px;
+  width: 100vw;
+  height: 6px;
+  background: url("../imgs/rainbowmenu.svg");
+}
+body {
+/*  background: rgba(231, 255, 236, 0.8);*/
+  background: hsla(133, 100%, 95%, 0.8);
+}
+a, .pointer,
+.nav__item--current a, 
+.nav__item a {
+  cursor: pointer;
+}
+
+.nav__item--current a, .nav__item a {
+  border-color: #bedfe6;
+}
+
+@media all and (min-width:1120px) {
+  .nav__item--current a, 
+  .nav__item a {
+    margin: 0 0.625em;
+  }
+}
+
+/* Header */
+#menu:checked ~ .menubar {
+  max-height: 400px;
+}
+.menubar {
+  overflow-y: hidden;
+  max-height: 400px;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: linear;
+}
+/*
+#menu:checked ~ .icn--nav-toggle {
+  border: 0;
+}
+#menu:checked ~ .icn--nav-toggle:before {
+  content: "\f00d";
+  font-family: FontAwesome;
+  font-size: 2em;
+  background: transparent;
+}
+.icn--nav-toggle {
+  border: 0;
+}
+.icn--nav-toggle:before {
+  content: "\f0c9";
+  font-family: FontAwesome;
+  font-size: 2em;
+  background: transparent;
+}
+*/
+
+/* Footer */
+.author a {
+  color: #797e83;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #52bab3;
+}
+.footbar .nav__item, 
+.footbar .nav__item--current {
+  display: inline-block;
+  margin: 0 0.625em;
+}
+
+/* Mobile */
+@media all and (max-width:894px) {
+  html {
+    background: url("../imgs/bg.svg") 5% 5% no-repeat;
+    background-size: 230px;
+  }
+}
+@media all and (max-width:768px) {
+  html {
+    background: url("../imgs/bg.svg") 95% 5% no-repeat;
+    background-size: 183.666px;
+  }
+  #menu:checked ~ .menubar {
+    max-height: 400px;
+  }
+  .menubar {
+    overflow-y: hidden;
+    max-height: 0;
+    transition-property: all;
+    transition-duration: .6s;
+    transition-timing-function: ease-in-out;
+  }
+}
+
+/* Misc */
+.hide {
+  display: none;
+}
+.center {
+  text-align: center;
+}

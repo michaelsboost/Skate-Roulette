@@ -1,0 +1,194 @@
+@import url("../libraries/alertifyjs/css/alertify.min.css");
+@import url("../libraries/alertifyjs/css/themes/default.min.css");
+@font-face {
+  font-family: HeitiUI;
+  src: url("../libraries/font-awesome/STHeiti Thin.ttc");
+}
+
+/* Globals */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-align: center;
+  background: #b4ecff;
+  overflow: auto;
+}
+
+/* Game Mode */
+.howto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 16px;
+}
+.trickcounter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+.topmsg {
+  padding: 1em 0 0 0;
+  margin: 0;
+}
+.topmsg span {
+  text-transform: capitalize;
+}
+.gamelist {
+  font-size: 1.2em;
+}
+
+/* Center vertically and horizontally */
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+}
+
+/* Players */
+.playernamehead {
+  font-size: 42px;
+}
+.playername {
+  font-size: 24px;
+  color: #5a8194;
+}
+.playername li,
+.playernameinput {
+  text-transform: capitalize;
+}
+.playernameinput {
+  margin: 0;
+  border-radius: 0;
+}
+.playername button {
+  border: 0;
+  color: #000;
+  background: transparent;
+  float: right;
+  padding: 0;
+}
+.confirmplayers {
+  width: 100%;
+  margin: 0;
+  background: #aba3ff;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0.4em;
+  border-bottom-right-radius: 0.4em;
+}
+
+/* Cards */
+.card {
+  display: inline-table;
+/*
+  width: 247px;
+  height: 336px;
+*/
+  width: 232px;
+  height: 321px;
+  margin: 15px;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 26px;
+  font-family: "HeitiUI";
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+.card-front {
+  border: 30px solid #489bd5;
+  background: #3e85bc;
+}
+.card-flipped {
+  border: 30px solid #393939;
+  background: #393939;
+  text-align: left;
+}
+.card p {
+/*  margin: 0 0 24px 0;*/
+  margin: 17px 0 24px 0;
+}
+
+/* Winner Alert Dialog */
+/*
+.alertify .ajs-dialog {
+  background-color: #fff136;
+}
+*/
+
+/* Winner Dialog */
+
+@media all and (max-width:560px) {
+  .playernamehead {
+    font-size: 30px;
+  }
+  .playername {
+    margin: 14px 0;
+    font-size: 20px;
+    color: #5a8194;
+  }
+  input.playername {
+    margin: 0;
+  }
+}
+
+/* Game Buttons */
+[class^="btn--"] {
+  display: inline-block;
+  width: 25vw;
+  margin-left: 0!important;
+}
+@media all and (max-width:768px) {
+  [class^="btn--"] {
+    display: inline-block;
+    width: calc(50vw - 50px);
+    margin-left: 0!important;
+  }
+}
+
+/* Misc */
+.hide {
+  display: none;
+}
+.invisible {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.pointer {
+  cursor: pointer;
+}
+.block {
+  display: block;
+}
+.ib {
+  display: inline-block;
+}
+.fill {
+  width: 100%;
+}
+.center {
+  text-align: center;
+}
+.tl {
+  text-align: left;
+}
+.fl {
+  float: left;
+}
+.fn {
+  float: none;
+}
+.fr {
+  float: right;
+}

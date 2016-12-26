@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skate Roulette: Skate Roulette Game</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link rel="stylesheet" href="../libraries/polyui/polyui.css">
+    <link rel="stylesheet" href="../libraries/font-awesome/font-awesome.css" />
+    <link rel="stylesheet" href="../css/cards.css" />
+  </head>
+  <body>
+    <!-- Trick Counter -->
+    <h1 class="headline-primary--grouped trickcounter hide" data-game="on" data-trick="attempts">0</h1>
+    <h1 class="pointer headline-primary--grouped howto" data-action="howto">
+      <i class="fa fa-question"></i>
+    </h1>
+    
+    <!-- Show Player's Turn -->
+    <h1 class="headline-primary--grouped topmsg hide" data-game="on">
+      <span data-player="turn"></span>'s Up! Points: <span data-player="points">0</span>
+    </h1>
+    
+    <!-- Centered Game Area -->
+    <div class="table">
+      <div class="cell">
+        <!-- Players -->
+        <div class="grid" data-display="players">
+          <div class="centered grid__col--9">
+            <h1 class="headline-primary--grouped playernamehead">
+              Insert player name(s) below!
+            </h1>
+            <ul class="headline-secondary--grouped playername" data-place="player"></ul>
+            
+            <input type="text" class="center headline-secondary--grouped playername playernameinput fill" data-add="player" />
+            <button class="btn--info confirmplayers fill hide" data-confirm="players">
+              Confirm
+            </button>
+          </div>
+        </div>
+
+        <!-- Trick(s) To Do -->
+        <div class="grid hide" data-game="on">
+          <div class="centered grid__col--12 center" data-count="cards">
+            <p>&nbsp;</p>
+            <div class="pointer card card-front" data-place="trick1">
+              <p>1</p>
+              <p>Skate Roulette</p>
+              <p>1</p>
+            </div>
+            <div class="pointer card card-front" data-place="trick2">
+              <p>2</p>
+              <p>Skate Roulette</p>
+              <p>2</p>
+            </div>
+            <div class="pointer card card-front" data-place="trick3">
+              <p>3</p>
+              <p>Skate Roulette</p>
+              <p>3</p>
+            </div>
+            <p>&nbsp;</p>
+          </div>
+        </div>
+        
+        <!-- Trick Landed or Missed Trick -->
+        <div class="grid hide" data-game="on">
+          <div class="centered grid__col--9">
+            <button class="btn--info confirm" data-confirm="land">
+              Landed
+            </button>
+            <button class="btn--error fr confirm" data-confirm="miss">
+              Missed
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../libraries/alertifyjs/alertify.min.js"></script>
+    <script src="../libraries/jquery/jquery.js"></script>
+    <script src="js/skateroulette.js"></script>
+  </body>
+</html>
