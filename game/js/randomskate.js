@@ -396,7 +396,7 @@ $("[data-confirm=miss]").click(function() {
         WinnerC = WinnerSTR.substr(0, 1).toUpperCase();
         WinnerL = WinnerSTR.substr(1, WinnerSTR.length).toLowerCase();
         Winner = WinnerC + WinnerL;
-        alertify.alert(Winner + "! Won The Game!").set("basic", true);
+        alertify.alert('<img src="../imgs/winner.png" style="width: 72%;"><img src="../imgs/cup.svg" style="width: 50%;"><h1>'+ Winner +'! <br>Won The Game!</h1>').set("basic", true);
       }
     }
   }
