@@ -1,5 +1,5 @@
 # Skate Roulette
-A fun and interactive skateboarding card game.
+A fun and interactive skateboarding based card game.
 
 ### Version
 0.0.1
