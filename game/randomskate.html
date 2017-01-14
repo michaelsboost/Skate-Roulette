@@ -27,15 +27,56 @@
         <!-- Players -->
         <div class="grid" data-display="players">
           <div class="centered grid__col--9">
-            <h1 class="headline-primary--grouped playernamehead">
-              Insert player name(s) below!
-            </h1>
-            <ul class="headline-secondary--grouped playername" data-place="player"></ul>
-            
-            <input type="text" class="center headline-secondary--grouped playername playernameinput fill" data-add="player" />
-            <button class="btn--info confirmplayers fill hide" data-confirm="players">
-              Confirm
-            </button>
+            <div class="difficulty">
+              <h1 class="center headline-primary--grouped playernamehead">
+                Select your difficulty...
+              </h1>
+              <ul class="headline-secondary--grouped playername">
+                <li>
+                  <input type="radio" id="simple" name="difficulty">
+                  <label for="simple">simple</label>
+
+                  <div class="check"></div>
+                </li>
+                
+                <li>
+                  <input type="radio" id="simpleswitch" name="difficulty">
+                  <label for="simpleswitch">simple/switch</label>
+
+                  <div class="check"></div>
+                </li>
+
+                <li>
+                  <input type="radio" id="intermediate" name="difficulty">
+                  <label for="intermediate">intermediate</label>
+
+                  <div class="check"><div class="inside"></div></div>
+                </li>
+
+                <li>
+                  <input type="radio" id="professional" name="difficulty">
+                  <label for="professional">professional</label>
+
+                  <div class="check"><div class="inside"></div></div>
+                </li>
+              </ul>
+              
+              <button class="btn--info confirmdifficulty fill" data-confirm="difficulty">
+                Confirm
+              </button>
+            </div>
+
+            <div class="hide" data-area="players">
+              <h1 class="headline-primary--grouped playernamehead">
+                Insert player name(s) below!
+              </h1>
+              <ul class="headline-secondary--grouped playername" data-place="player"></ul>
+
+              <input type="text" class="center headline-secondary--grouped playername playernameinput fill" data-add="player" />
+              <button class="btn--info confirmplayers fill hide" data-confirm="players">
+                Confirm
+              </button>
+            </div>          
           </div>
         </div>
 
