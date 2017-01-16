@@ -9,86 +9,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9" />
     <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico">
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link href="img/favicon.png" rel="apple-touch-icon">
-    <link rel="stylesheet" href="libraries/polyui/polyui.css">
-    <link rel="stylesheet" href="libraries/font-awesome/font-awesome.css" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link href="imgs/favicon.png" rel="apple-touch-icon">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ["Montserrat:400,700","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic"]
+        }
+      });
+    </script>
+    <script src="libraries/modernizr/modernizr.js"></script>
   </head>
-  <body>
-    <div class="grid" id="top">
-      <header class="grid__col--12 panel--padded--centered" role="banner"> 
-        <nav class="navbar" role="navigation">
-          <input type="checkbox" id="menu" class="hide">
-          <label for="menu" class="icn--nav-toggle is-displayed-mobile">
-            <b class="srt">Toggle</b>
-          </label>   
-          <ul class="nav menubar" role="navigation">
-            <li class="nav__item">
-              <a href="game/index.html" target="_blank">
-                Online
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="javascript:void(0)" target="_blank">
-                Android
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="javascript:void(0)" target="_blank">
-                iOS
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </div>
-
-    <div class="grid">
-      <div class="centered grid__col--8">
-        <p>&nbsp;</p>
-        <h1 class="headline-primary--grouped">
-          Skate Roulette
-        </h1>
-        <h2 class="headline-secondary--grouped">
-          A fun and interactive skateboarding based card game.
-        </h2>
-        <h1 class="headline-primary--grouped">
-          See it in action!
-        </h1>
-        <h2 class="headline-secondary--grouped">
-<!--          <iframe width="100%" height="360" src="https://www.youtube.com/embed/cZLlx2KfPD8" frameborder="0" allowfullscreen></iframe>-->
-          video coming soon...
-        </h2>
-      </div>
-    </div>
-
-     <div class="grid">
-      <div class="grid__col--12 panel--padded--centered" role="banner"> 
-        <nav class="navbar footbar">
-          <ul class="nav">
-            <li class="nav__item">
-              <a href="#top" onclick="location.reload(true);">
-                Home
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="https://github.com/mikethedj4/Skate-Roulette" target="_blank">
-                Github
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=BSYGA2RB5ZJCC" target="_blank">
-                Donate
-              </a>
-            </li>
-          </ul>
-          <div class="author">
-            Made by <a href="http://mikethedj4.github.io/" target="_blank">Michael</a> with love and caffeine.
+  <body class="main">
+    <div class="bgvid w-background-video" data-autoplay="data-autoplay" data-loop="data-loop" data-poster-url="imgs/bgvid-poster.jpg" data-video-urls="https://daks2k3a4ib2z.cloudfront.net/587c60448535ac5665968e91/587c98d7031ffeee50bad7f4_bgvid-transcode.webm,https://daks2k3a4ib2z.cloudfront.net/587c60448535ac5665968e91/587c98d7031ffeee50bad7f4_bgvid-transcode.mp4" data-wf-ignore="data-wf-ignore" id="home">
+      <div class="cover">
+        <div class="navbar w-nav" data-animation="default" data-collapse="small" data-duration="400">
+          <div class="w-container">
+            <a class="w-nav-brand" href="#home">
+              <img src="imgs/logo-nobg.svg" width="100">
+            </a>
+            <nav class="navlinks w-nav-menu" role="navigation">
+              <a class="navlink w-nav-link" href="#home">Home</a>
+              <a class="navlink w-nav-link" href="#about">About</a>
+              <a class="navlink w-nav-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=BSYGA2RB5ZJCC" target="_blank">donate</a>
+              <a class="navlink w-nav-link" href="https://mikethedj4.github.io/Skate-Roulette/game/" target="_blank">play</a>
+              <a class="navlink w-nav-link" href="https://github.com/mikethedj4/Skate-Roulette/issues" target="_blank">support</a>
+            </nav>
+            <div class="menu-btn w-nav-button">
+              <div class="menu-icon w-icon-nav-menu"></div>
+            </div>
           </div>
-        </nav>
+        </div>
+        <h1 class="black" data-ix="skate">skate</h1>
+        <h1 data-ix="roulette">roulette</h1>
+        <a class="play w-button" href="https://mikethedj4.github.io/Skate-Roulette/game/">play</a>
       </div>
     </div>
-    
+    <div class="about-container" id="about">
+      <div class="abt-div w-clearfix">
+        <p class="aboutus">Skate Roulette was created to help skaters try new tricks they've may of never tried before but also to help&nbsp;broaden the boundaries of the regular game of S.K.A.T.E.</p>
+        <a class="tweets w-button" data-ix="tweets" href="#">tweets</a>
+        <h1 class="about-head" data-ix="about-the-game">about<br>
+          <br>
+          the<br>
+          <br>
+          game</h1>
+      </div>
+    </div>
+    <div class="donate-bg">
+      <a class="donate-txt w-inline-block" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=BSYGA2RB5ZJCC" target="_blank">
+        <h1>donate to the project</h1>
+      </a>
+    </div>
+    <div class="social-sidebar" data-ix="sidebar">
+      <a class="social-sidebtns w-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mikethedj4.github.io/Skate-Roulette/" target="_blank">
+        <img src="imgs/facebook-dark.png">
+      </a>
+      <a class="social-sidebtns w-inline-block" href="https://twitter.com/home?status=%23SkateRouletteGame%20brings%20S.K.A.T.E%20to%20a%20whole%20new%20level!%20%23skate%20%23skateboarding%20https%3A//mikethedj4.github.io/Skate-Roulette/" target="_blank">
+        <img src="imgs/twitter-dark.png">
+      </a>
+      <a class="social-sidebtns w-inline-block" href="https://plus.google.com/share?url=https%3A//mikethedj4.github.io/Skate-Roulette/" target="_blank">
+        <img src="imgs/gplus-dark.png">
+      </a>
+    </div>
+    <div class="footer">
+      <div>
+        <a class="w-inline-block" href="#home" target="_blank">
+          <img src="imgs/totop.png">
+        </a>
+        <div class="to-top">
+          Back to Top
+        </div>
+      </div>
+      <div class="social-footer">
+        <a class="social-footer-links w-inline-block" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mikethedj4.github.io/Skate-Roulette/" target="_blank">
+          <img src="imgs/facebook-light.png">
+        </a>
+        <a class="social-footer-links w-inline-block" href="https://twitter.com/home?status=%23SkateRouletteGame%20brings%20S.K.A.T.E%20to%20a%20whole%20new%20level!%20%23skate%20%23skateboarding%20https%3A//mikethedj4.github.io/Skate-Roulette/" target="_blank">
+          <img src="imgs/twitter-light.png">
+        </a>
+        <a class="social-footer-links w-inline-block" href="https://plus.google.com/share?url=https%3A//mikethedj4.github.io/Skate-Roulette/" target="_blank">
+          <img src="imgs/gplus-light.png">
+        </a>
+      </div>
+      <div>
+        <div class="copyright">
+          © 2017&nbsp;by Skate Roulette.
+        </div>
+      </div>
+    </div>
+    <script src="libraries/jquery/jquery.min.js"></script> 
     <script src="js/index.js"></script>
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
   </body>
 </html>
