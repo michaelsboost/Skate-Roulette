@@ -259,7 +259,12 @@ var trickNumber = 0,
       "manual kickflip",
       "switch manual kickflip",
       "nollie manual kickflip",
-      "fakie manual fakie kickflip"
+      "fakie manual fakie kickflip",
+      
+      "fingerflip",
+      "switch fingerflip",
+      "fakie fingerflip",
+      "nollie fingerflip"
     ],
     AdvancedTricks = [
       "WildCard (Player chooses trick)",
@@ -526,7 +531,59 @@ var trickNumber = 0,
       "manual kickflip",
       "switch manual kickflip",
       "nollie manual kickflip",
-      "fakie manual fakie kickflip"
+      "fakie manual fakie kickflip",
+      
+      "kickflip underflip",
+      "switch kickflip underflip",
+      "fakie kickflip underflip",
+      "nollie kickflip underflip",
+      
+      "airwalk",
+      "switch airwalk",
+      "nollie airwalk",
+      "fakie airwalk",
+
+      "fingerflip",
+      "switch fingerflip",
+      "fakie fingerflip",
+      "nollie fingerflip",
+
+      "finger shuv-it",
+      "switch finger shuv-it",
+      "fakie finger shuv-it",
+      "nollie finger shuv-it",
+
+      "finger hardflip",
+      "switch hardflip",
+      "fakie hardflip",
+      "nollie hardflip",
+
+      "finger 360flip",
+      "switch 360flip",
+      "fakie 360flip",
+      "nollie 360flip",
+      
+      "kickflip late heelflip",
+      "switch kickflip late heelflip",
+      "fakie kickflip late heelflip",
+      "nollie kickflip late heelflip",
+      
+      "kickflip late varial heelflip",
+      "switch kickflip late varial heelflip",
+      "fakie kickflip late varial heelflip",
+      "nollie kickflip late varial heelflip",
+      
+      "Gazelle (540 Shove-it 360 Body Varial)",
+      "Half-Cab Double Flip",
+      "Half-Cab Impossible",
+      "Half Cab Kickflip",
+      "Half-Cab Kickflip Underflip",
+      "Handstand Flip",
+      "One Footed Ollie",
+      "Varial Heelflip Underflip",
+      "Primo Flip",
+      "Kickflip, Primo, flip out",
+      "Kickflip, Rimo, flip out"
     ],
     playerName, playerStats, Winner,
     playerSTR, playerC, playerL,

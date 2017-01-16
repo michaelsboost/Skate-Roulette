@@ -43,6 +43,26 @@ var trickNumber = 0,
       "bs pop-shuv-it",
       "fs 360 pop-shuv-it",
       "bs 360 pop-shuv-it",
+      
+      "kickflip underflip",
+      "fingerflip",
+      "finger shuv-it",
+      "finger hardflip",
+      "finger 360flip",
+      
+      "Airwalk",
+      "Gazelle (540 Shove-it 360 Body Varial)",
+      "Half-Cab Double Flip",
+      "Half-Cab Impossible",
+      "Half Cab Kickflip",
+      "Half-Cab Kickflip Underflip",
+      "Handstand Flip",
+      "One Footed Ollie",
+      "Varial Heelflip Underflip",
+      "Primo Flip",
+      "Kickflip, Primo, flip out",
+      "Kickflip, Rimo, flip out",
+      
       "WildCard (Player chooses trick)"
     ],
     Trick2 = [
