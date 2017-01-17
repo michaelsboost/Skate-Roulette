@@ -127,8 +127,8 @@ h1 {
   -ms-flex-align: center;
   align-items: center;
   background-color: #0098ff;
-  background-image: -webkit-linear-gradient(270deg, hsla(180, 1%, 45%, .5), hsla(180, 1%, 45%, .5)), url("http://uploads.webflow.com/587c60448535ac5665968e91/587c798da126883e7fed66f9_city-man-person-people.jpg");
-  background-image: linear-gradient(180deg, hsla(180, 1%, 45%, .5), hsla(180, 1%, 45%, .5)), url("http://uploads.webflow.com/587c60448535ac5665968e91/587c798da126883e7fed66f9_city-man-person-people.jpg");
+  background-image: -webkit-linear-gradient(270deg, hsla(180, 1%, 45%, .5), hsla(180, 1%, 45%, .5)), url("../imgs/city-man-person-people.jpg");
+  background-image: linear-gradient(180deg, hsla(180, 1%, 45%, .5), hsla(180, 1%, 45%, .5)), url("../imgs/city-man-person-people.jpg");
   background-position: 0px 0px, 0px 0px;
   background-size: auto, cover;
   background-attachment: scroll, fixed;
