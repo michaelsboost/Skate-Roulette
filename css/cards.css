@@ -11,7 +11,9 @@ html, body {
   padding: 0;
   height: 100%;
   text-align: center;
-  background: #b4ecff;
+/*  background: #b4ecff;*/
+  background: #b4fff1;
+/*  background: rgba(248, 255, 230, 0.8);*/
   overflow: auto;
 }
 
