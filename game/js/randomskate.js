@@ -646,12 +646,12 @@ $("[data-confirm=difficulty]").click(function() {
     alertify.error("No difficulty selected");
   } else {
     $(".difficulty").fadeOut(250);
-    $("[data-area=players]").delay(250).fadeIn();
+    $("[data-area=players]").delay(250).fadeIn().focus();
   }
 });
 
 // Add Players
-$("[data-add=player]").focus().on("keyup", function(e) {
+$("[data-add=player]").on("keyup", function(e) {
   if (e.which === 13) {
     if (this.value === "") {
       if ($("[data-place=player]").html() === "") {
