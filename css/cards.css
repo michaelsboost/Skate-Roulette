@@ -223,7 +223,7 @@ html, body {
 /* Game Buttons */
 [class^="btn--"] {
   display: inline-block;
-  width: 25vw;
+  width: 49%;
   margin-left: 0!important;
 }
 @media all and (max-width:768px) {
