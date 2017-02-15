@@ -646,7 +646,8 @@ $("[data-confirm=difficulty]").click(function() {
     alertify.error("No difficulty selected");
   } else {
     $(".difficulty").fadeOut(250);
-    $("[data-area=players]").delay(250).fadeIn().focus();
+    $("[data-area=players]").delay(250).fadeIn();
+    $("input[type=text]:visible").focus();
   }
 });
 
@@ -675,6 +676,10 @@ $("[data-add=player]").on("keyup", function(e) {
 
 // Confirm Players
 $("[data-confirm=players]").click(function() {
+  if ( $("[data-add=player]").val() ) {
+    $("[data-place=player]").append("<li><span data-player='"+ $("[data-add=player]").val() +"'>"+ $("[data-add=player]").val() +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+    $("[data-add=player]").val("");
+  }
   $("[data-place=player]").randomize("li");
   
   $(this).addClass("hide");
@@ -749,7 +754,9 @@ $("[data-confirm=miss]").click(function() {
         WinnerC = WinnerSTR.substr(0, 1).toUpperCase();
         WinnerL = WinnerSTR.substr(1, WinnerSTR.length).toLowerCase();
         Winner = WinnerC + WinnerL;
-        alertify.alert('<img src="../imgs/winner.png" style="width: 72%;"><img src="../imgs/cup.svg" style="width: 50%;"><h1>'+ Winner +'! <br>Won The Game!</h1>').set("basic", true);
+        alertify.alert('<img src="../imgs/winner.png" style="width: 72%;"><img src="../imgs/cup.svg" style="width: 50%;"><h1>'+ Winner +'! <br>Won The Game!</h1>', function() {
+          location.reload();
+        }).set("basic", true);
       }
     }
   }

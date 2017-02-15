@@ -137,9 +137,9 @@ $("[data-action=howto]").click(function() {
       msg3 = "For example if the first card is a kickflip and the 2nd card is a 50-50 grind. The player can choose to kickflip into a 50-50 or kickflip out of a 50-50. If the 2nd card is switch then the player must try and perform a switch kickflip with a max of 2 tries.<br><br>",
       msg4 = "If player successfully completes trick, player will retain the cards he/she won and the player with the most cards at the end of the game wins.<br><br>",
       msg5 = "<strong>End of Game</strong>:<br>Players choose to end game based upon either...<br>",
-      msg6 = "a max point goal (ex. Point goal is 12 if Eric gets 10 but Michael gets 12. Michael wins!)";
-      msg6 = "or a set time (ex. at 6:30 game ends whoever has the most points wins)";
-  alertify.alert("<h2 class='tl'>"+ msg1 + msg2 + msg3 + msg4 + msg5 + msg6 +"</h2>").set("basic", true);
+      msg6 = "a max point goal (ex. Point goal is 12 if Eric gets 10 but Michael gets 12. Michael wins!)<br>",
+      msg7 = "or a set time (ex. at 6:30 game ends whoever has the most points wins)";
+  alertify.alert("<h2 class='tl'>"+ msg1 + msg2 + msg3 + msg4 + msg5 + msg6 + msg7 +"</h2>").set("basic", true);
 });
 
 $("[data-place=trick1]").on("click", function() {
@@ -192,6 +192,11 @@ $("[data-add=player]").focus().on("keyup", function(e) {
 
 // Confirm Players
 $("[data-confirm=players]").click(function() {
+  if ( $("[data-add=player]").val() ) {
+    $("[data-place=player]").append("<li><span data-player='"+ $("[data-add=player]").val() +"'>"+ $("[data-add=player]").val() +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+    $("[data-add=player]").val("");
+  }
+  
   $("[data-place=player]").randomize("li");
   
   $(this).addClass("hide");
@@ -217,7 +222,7 @@ $("[data-confirm=land]").click(function() {
       $("[data-player="+ $("[data-player=turn]").text() +"]").addClass("followTrick");
     }
 
-    playerStats.text( parseInt(playerStats.text()) + $(".card-flipped:visible").index() + 1 );
+    playerStats.text( parseInt(playerStats.text()) + $(".card-flipped:visible").length );
     if ($("[data-player="+ playerName +"]").parent().next().is(":visible")) {
       $("[data-player=turn]").text($("[data-player="+ playerName +"]").parent().next().children().first().text());
       $("[data-player=points]").text($("[data-player="+ playerName +"]").parent().next().children().first().next().text());
@@ -251,7 +256,7 @@ $("[data-confirm=miss]").click(function() {
       $("[data-trick=attempts]").text(trickNumber + 1);
     }
 
-    // playerStats.text( parseInt(playerStats.text()) - 1 );
+    // playerStats.text( parseInt(playerStats.text()) - $(".card-flipped:visible").length );
     if ($("[data-player="+ playerName +"]").parent().next().is(":visible")) {
       $("[data-player=turn]").text($("[data-player="+ playerName +"]").parent().next().children().first().text());
       $("[data-player=points]").text($("[data-player="+ playerName +"]").parent().next().children().first().next().text());
