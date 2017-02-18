@@ -598,15 +598,15 @@ var trickNumber = 0,
       }
     },
     landedSound   = function() {
-      audioElement.setAttribute("src", "../../media/landed.mp3");
+      audioElement.setAttribute("src", "../media/landed.mp3");
       audioElement.play();
     },
     missedSound   = function() {
-      audioElement.setAttribute("src", "../../media/missed.mp3");
+      audioElement.setAttribute("src", "../media/missed.mp3");
       audioElement.play();
     },
     victorySound  = function() {
-      audioElement2.setAttribute("src", "../../media/youwin-man.mp3");
+      audioElement2.setAttribute("src", "../media/youwin-man.mp3");
       audioElement2.play();
     };
 
