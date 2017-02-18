@@ -177,12 +177,16 @@ $("[data-add=player]").focus().on("keyup", function(e) {
         $("[data-confirm=players]").trigger("click");
       }
     } else {
-      $("[data-place=player]").append("<li><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+      $("[data-place=player]").append("<li style='display:none;'><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+      $("[data-place=player] li").last().slideDown();
+      
       $("[data-confirm=players]").removeClass("hide");
       this.value = "";
 
       $("[data-remove=player]").on("click", function() {
-        $(this).parent().remove();
+        $(this).parent().delay(300).slideUp(function() {
+          $(this).remove();
+        });
         hasPlayers();
       });
       hasPlayers();
@@ -193,7 +197,8 @@ $("[data-add=player]").focus().on("keyup", function(e) {
 // Confirm Players
 $("[data-confirm=players]").click(function() {
   if ( $("[data-add=player]").val() ) {
-    $("[data-place=player]").append("<li><span data-player='"+ $("[data-add=player]").val() +"'>"+ $("[data-add=player]").val() +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+    $("[data-place=player]").append("<li style='display:none;'><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+    $("[data-place=player] li").last().slideDown();
     $("[data-add=player]").val("");
   }
   
@@ -276,6 +281,19 @@ $("[data-confirm=miss]").click(function() {
     }
   }
 });
+
+// Animate button on click
+$("[data-confirm=land], [data-confirm=miss]").on("click", function() {
+  doBounce($(this), 3, '20px', 100);   
+  return false;
+});
+
+function doBounce(element, times, distance, speed) {
+  for(i = 0; i < times; i++) {
+    element.animate({marginTop: '-='+distance},speed)
+           .animate({marginTop: '+='+distance},speed);
+  }        
+}
 
 // Auto make players
 //$("[data-place=player]").html('<li><span data-player="michael">michael</span><span data-count="player"></span><button class="pointer" data-remove="player"><i class="fa fa-times"></i></button></li><li><span data-player="Eric">Eric</span><span data-count="player"></span><button class="pointer" data-remove="player"><i class="fa fa-times"></i></button></li><li><span data-player="Tasha">Tasha</span><span data-count="player"></span><button class="pointer" data-remove="player"><i class="fa fa-times"></i></button></li>');
