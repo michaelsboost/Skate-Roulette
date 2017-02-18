@@ -776,7 +776,8 @@ $("[data-confirm=miss]").click(function() {
         WinnerL = WinnerSTR.substr(1, WinnerSTR.length).toLowerCase();
         Winner = WinnerC + WinnerL;
         victorySound();
-        alertify.alert('<img src="../imgs/winner.png" style="width: 72%;"><img src="../imgs/cup.svg" style="width: 50%;"><h1>'+ Winner +'! <br>Won The Game!</h1>', function() {
+        //alertify.alert('<img src="../imgs/winner.png" style="width: 72%;"><img src="../imgs/cup.svg" style="width: 50%;"><h1>'+ Winner +'! <br>Won The Game!</h1>').set("basic", true);
+        alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BSYGA2RB5ZJCC" target="_blank"><img src="../imgs/donate.png"></a>', function() {
           location.reload();
         }).set("basic", true);
       }

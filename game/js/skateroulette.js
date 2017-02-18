@@ -9,6 +9,14 @@ var counter     = 133,
 
 setInterval(countDown, 25);
 
+// After 3 minutes ask a donation = 180000
+// After 5 minutes ask a donation = 300000
+setTimeout(function() {
+  alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BSYGA2RB5ZJCC" target="_blank"><img src="../imgs/donate.png"></a>', function() {
+    location.reload();
+  }).set("basic", true);
+}, 300000);
+
 // Plugins
 (function($) {
   $.fn.randomize = function(childElm) {
