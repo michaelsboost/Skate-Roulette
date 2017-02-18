@@ -9,6 +9,14 @@ var counter     = 133,
 
 setInterval(countDown, 25);
 
+// After 3 minutes ask a donation = 180000
+// After 5 minutes ask a donation = 300000
+setTimeout(function() {
+  alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BSYGA2RB5ZJCC" target="_blank"><img src="../imgs/donate.png"></a>', function() {
+    location.reload();
+  }).set("basic", true);
+}, 300000);
+
 // Plugins
 (function($) {
   $.fn.randomize = function(childElm) {
@@ -113,10 +121,23 @@ var trickNumber = 0,
     randomTrick2 = Math.floor(Math.random() * Trick2.length),
     randomTrick3 = Math.floor(Math.random() * Trick3.length),
     randomTrick4 = Math.floor(Math.random() * Trick1.length),
-    hasPlayers   = function() {
+    audioElement  = document.createElement("audio"),
+    hasPlayers    = function() {
       if ( $("[data-place=player]").html() === "" ) {
         $("[data-confirm=players]").addClass("hide");
       }
+    },
+    landedSound   = function() {
+      audioElement.setAttribute("src", "../../media/landed.mp3");
+      audioElement.play();
+    },
+    missedSound   = function() {
+      audioElement.setAttribute("src", "../../media/missed.mp3");
+      audioElement.play();
+    },
+    winnerAnswer  = function(answer, call) {
+      audioElement.setAttribute("src", "../../media/youwin-man.mp3");
+      audioElement.play();
     };
 
 function refreshDeck() {
@@ -177,12 +198,16 @@ $("[data-add=player]").focus().on("keyup", function(e) {
         $("[data-confirm=players]").trigger("click");
       }
     } else {
-      $("[data-place=player]").append("<li><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+      $("[data-place=player]").append("<li style='display:none;'><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+      $("[data-place=player] li").last().slideDown();
+      
       $("[data-confirm=players]").removeClass("hide");
       this.value = "";
 
       $("[data-remove=player]").on("click", function() {
-        $(this).parent().remove();
+        $(this).parent().delay(300).slideUp(function() {
+          $(this).remove();
+        });
         hasPlayers();
       });
       hasPlayers();
@@ -193,7 +218,8 @@ $("[data-add=player]").focus().on("keyup", function(e) {
 // Confirm Players
 $("[data-confirm=players]").click(function() {
   if ( $("[data-add=player]").val() ) {
-    $("[data-place=player]").append("<li><span data-player='"+ $("[data-add=player]").val() +"'>"+ $("[data-add=player]").val() +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+    $("[data-place=player]").append("<li style='display:none;'><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+    $("[data-place=player] li").last().slideDown();
     $("[data-add=player]").val("");
   }
   
@@ -241,6 +267,7 @@ $("[data-confirm=land]").click(function() {
       }
     }
   }
+  landedSound();
 });
 $("[data-confirm=miss]").click(function() {
   playerName = $("[data-player=turn").text();
@@ -275,7 +302,21 @@ $("[data-confirm=miss]").click(function() {
       }
     }
   }
+  missedSound();
 });
+
+// Animate button on click
+$("[data-confirm=land], [data-confirm=miss]").on("click", function() {
+  doBounce($(this), 2, '15px', 50);   
+  return false;
+});
+
+function doBounce(element, times, distance, speed) {
+  for(i = 0; i < times; i++) {
+    element.animate({marginTop: '-='+distance},speed)
+           .animate({marginTop: '+='+distance},speed);
+  }        
+}
 
 // Auto make players
 //$("[data-place=player]").html('<li><span data-player="michael">michael</span><span data-count="player"></span><button class="pointer" data-remove="player"><i class="fa fa-times"></i></button></li><li><span data-player="Eric">Eric</span><span data-count="player"></span><button class="pointer" data-remove="player"><i class="fa fa-times"></i></button></li><li><span data-player="Tasha">Tasha</span><span data-count="player"></span><button class="pointer" data-remove="player"><i class="fa fa-times"></i></button></li>');

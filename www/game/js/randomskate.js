@@ -590,10 +590,24 @@ var trickNumber = 0,
     playerName, playerStats, Winner,
     playerSTR, playerC, playerL,
     WinnerSTR, WinnerC, WinnerL,
-    hasPlayers = function() {
+    audioElement  = document.createElement("audio"),
+    audioElement2 = document.createElement("audio"),
+    hasPlayers    = function() {
       if ( $("[data-place=player]").html() === "" ) {
         $("[data-confirm=players]").addClass("hide");
       }
+    },
+    landedSound   = function() {
+      audioElement.setAttribute("src", "../../media/landed.mp3");
+      audioElement.play();
+    },
+    missedSound   = function() {
+      audioElement.setAttribute("src", "../../media/missed.mp3");
+      audioElement.play();
+    },
+    victorySound  = function() {
+      audioElement2.setAttribute("src", "../../media/youwin-man.mp3");
+      audioElement2.play();
     };
 
 function refreshSimple() {
@@ -645,9 +659,10 @@ $("[data-confirm=difficulty]").click(function() {
   if ( !$("input[name=difficulty]").is(":checked") ) {
     alertify.error("No difficulty selected");
   } else {
-    $(".difficulty").fadeOut(250);
-    $("[data-area=players]").delay(250).fadeIn();
-    $("input[type=text]:visible").focus();
+    $(".difficulty").slideUp(250);
+    $("[data-area=players]").delay(250).fadeIn(function() {
+      $("input[type=text]:visible").focus();
+    });
   }
 });
 
@@ -661,12 +676,15 @@ $("[data-add=player]").on("keyup", function(e) {
         $("[data-confirm=players]").trigger("click");
       }
     } else {
-      $("[data-place=player]").append("<li><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+      $("[data-place=player]").append("<li style='display:none;'><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+      $("[data-place=player] li").last().slideDown();
       $("[data-confirm=players]").removeClass("hide");
       this.value = "";
 
       $("[data-remove=player]").on("click", function() {
-        $(this).parent().remove();
+        $(this).parent().delay(300).slideUp(function() {
+          $(this).remove();
+        });
         hasPlayers();
       });
       hasPlayers();
@@ -677,15 +695,17 @@ $("[data-add=player]").on("keyup", function(e) {
 // Confirm Players
 $("[data-confirm=players]").click(function() {
   if ( $("[data-add=player]").val() ) {
-    $("[data-place=player]").append("<li><span data-player='"+ $("[data-add=player]").val() +"'>"+ $("[data-add=player]").val() +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+    $("[data-place=player]").append("<li style='display:none;'><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+    $("[data-place=player] li").last().slideDown();
     $("[data-add=player]").val("");
   }
   $("[data-place=player]").randomize("li");
   
-  $(this).addClass("hide");
-  $("[data-add=player]").addClass("hide");
+  $(this).fadeOut();
+  $("[data-add=player]").fadeOut();
   $("[data-display=players]").addClass("invisible");
-  $("[data-game=on]").removeClass("hide");
+  $("[data-game=on]").fadeIn().removeClass("hide");
+  
   $(".table").css("height", "calc(100% - "+ $(".topmsg").css("height") +")");
   
   $("[data-player=turn]").text($("[data-place=player] li").first().children().first().text());
@@ -722,6 +742,7 @@ $("[data-confirm=land]").click(function() {
       }
     }
   }
+  landedSound();
 });
 $("[data-confirm=miss]").click(function() {
   playerName = $("[data-player=turn").text();
@@ -754,7 +775,9 @@ $("[data-confirm=miss]").click(function() {
         WinnerC = WinnerSTR.substr(0, 1).toUpperCase();
         WinnerL = WinnerSTR.substr(1, WinnerSTR.length).toLowerCase();
         Winner = WinnerC + WinnerL;
-        alertify.alert('<img src="../imgs/winner.png" style="width: 72%;"><img src="../imgs/cup.svg" style="width: 50%;"><h1>'+ Winner +'! <br>Won The Game!</h1>', function() {
+        victorySound();
+        //alertify.alert('<img src="../imgs/winner.png" style="width: 72%;"><img src="../imgs/cup.svg" style="width: 50%;"><h1>'+ Winner +'! <br>Won The Game!</h1>').set("basic", true);
+        alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BSYGA2RB5ZJCC" target="_blank"><img src="../imgs/donate.png"></a>', function() {
           location.reload();
         }).set("basic", true);
       }
@@ -779,7 +802,21 @@ $("[data-confirm=miss]").click(function() {
       $("[data-trick=attempts]").text(trickNumber + 1);
     }
   }
+  missedSound();
 });
+
+// Animate button on click
+$("[data-confirm=land], [data-confirm=miss], [data-confirm=difficulty]").on("click", function() {
+  doBounce($(this), 2, '15px', 50);   
+  return false;
+});
+
+function doBounce(element, times, distance, speed) {
+  for(i = 0; i < times; i++) {
+    element.animate({marginTop: '-='+distance},speed)
+           .animate({marginTop: '+='+distance},speed);
+  }        
+}
 
 // Auto make players
 //$("[data-place=player]").html('<li><span data-player="michael">michael</span><span data-count="player"></span><button class="pointer" data-remove="player"><i class="fa fa-times"></i></button></li><li><span data-player="Eric">Eric</span><span data-count="player"></span><button class="pointer" data-remove="player"><i class="fa fa-times"></i></button></li><li><span data-player="Tasha">Tasha</span><span data-count="player"></span><button class="pointer" data-remove="player"><i class="fa fa-times"></i></button></li>');
