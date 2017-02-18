@@ -46,9 +46,9 @@ html, body {
 .topmsg div a {
   padding: 0 8vw;
 }
-  .showonsmall {
-    display: none;
-  }
+.showonsmall {
+  display: none;
+}
 @media all and (max-width:460px) {
   .topmsg div a {
     padding: 0;

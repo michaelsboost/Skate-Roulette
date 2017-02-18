@@ -113,10 +113,23 @@ var trickNumber = 0,
     randomTrick2 = Math.floor(Math.random() * Trick2.length),
     randomTrick3 = Math.floor(Math.random() * Trick3.length),
     randomTrick4 = Math.floor(Math.random() * Trick1.length),
-    hasPlayers   = function() {
+    audioElement  = document.createElement("audio"),
+    hasPlayers    = function() {
       if ( $("[data-place=player]").html() === "" ) {
         $("[data-confirm=players]").addClass("hide");
       }
+    },
+    landedSound   = function() {
+      audioElement.setAttribute("src", "../../media/landed.mp3");
+      audioElement.play();
+    },
+    missedSound   = function() {
+      audioElement.setAttribute("src", "../../media/missed.mp3");
+      audioElement.play();
+    },
+    winnerAnswer  = function(answer, call) {
+      audioElement.setAttribute("src", "../../media/youwin-man.mp3");
+      audioElement.play();
     };
 
 function refreshDeck() {
@@ -246,6 +259,7 @@ $("[data-confirm=land]").click(function() {
       }
     }
   }
+  landedSound();
 });
 $("[data-confirm=miss]").click(function() {
   playerName = $("[data-player=turn").text();
@@ -280,11 +294,12 @@ $("[data-confirm=miss]").click(function() {
       }
     }
   }
+  missedSound();
 });
 
 // Animate button on click
 $("[data-confirm=land], [data-confirm=miss]").on("click", function() {
-  doBounce($(this), 3, '20px', 100);   
+  doBounce($(this), 2, '15px', 50);   
   return false;
 });
 
