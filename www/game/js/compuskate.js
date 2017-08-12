@@ -37,7 +37,6 @@ setInterval(countDown, 25);
 
 var trickNumber = 0,
     SimpleTricks = [
-      "WildCard (Player chooses trick)",
       "ollie",
       "fakie ollie",
       "manual",
@@ -63,7 +62,6 @@ var trickNumber = 0,
       "fakie pressureflip"
     ],
     SimpleSwitchTricks = [
-      "WildCard (Player chooses switch trick)",
       "switch ollie",
       "switch ollie north",
       "switch kickflip",
@@ -87,7 +85,6 @@ var trickNumber = 0,
       "nollie pressureflip"
     ],
     IntermediateTricks = [
-      "WildCard (Player chooses trick)",
       "ollie",
       "switch ollie",
       "nollie",
@@ -274,7 +271,6 @@ var trickNumber = 0,
       "nollie fingerflip"
     ],
     AdvancedTricks     = [
-      "WildCard (Player chooses trick)",
       "ollie",
       "switch ollie",
       "nollie",
@@ -617,8 +613,20 @@ var trickNumber = 0,
         audioElement.setAttribute("src", "../media/youwin-man.mp3");
         audioElement.play();
       } else {
-        audioElement.setAttribute("src", "../media/youwin-man.mp3");
+        audioElement.setAttribute("src", "../../media/youwin-man.mp3");
         audioElement.play();
+      }
+    },
+    ifComputer    = function() {
+      if ($("[data-player=turn]").text() === "computer") {
+        trickResult = [
+          "land",
+          "miss"
+        ]
+
+        var randomResult = Math.floor(Math.random() * trickResult.length);
+        
+        $("[data-confirm="+ trickResult[randomResult] +"]").trigger("click");
       }
     };
 
@@ -656,16 +664,6 @@ $("input[name=difficulty]").on("change", function() {
   return false;
 }).trigger("change");
 
-// How To Play
-$("[data-action=howto]").click(function() {
-  var msg1 = "S.K.A.T.E. similar to H.O.R.S.E. in basketball.<br>",
-      msg2 = "Player will be given a random trick to do if player lands trick others have to do that trick.<br>",
-      msg3 = "If the other players fail they receive a letter.<br>",
-      msg4 = "Once a player has the letters S.K.A.T.E. they are out of the game.<br>",
-      msg5 = "The last remaining player wins.";
-  alertify.alert("<h2 class='tl'>"+ msg1 + msg2 + msg3 + msg4 + msg5 +"</h2>").set("basic", true);
-});
-
 // Confirm Difficulty
 $("[data-confirm=difficulty]").click(function() {
   if ( !$("input[name=difficulty]").is(":checked") ) {
@@ -692,13 +690,11 @@ $("[data-add=player]").on("keyup", function(e) {
       $("[data-place=player] li").last().slideDown();
       $("[data-confirm=players]").removeClass("hide");
       this.value = "";
-
-      $("[data-remove=player]").on("click", function() {
-        $(this).parent().delay(300).slideUp(function() {
-          $(this).remove();
-        });
-        hasPlayers();
-      });
+      $("[data-place=player]").append("<li style='display:none;'><span data-player='computer'>computer</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
+      $("[data-place=player] li").last().slideDown();
+      $("[data-confirm=players]").removeClass("hide");
+      this.value = "";
+      $("[data-confirm=players]").trigger("click");
       hasPlayers();
     }
   }
@@ -721,6 +717,7 @@ $("[data-confirm=players]").click(function() {
   $(".table").css("height", "calc(100% - "+ $(".topmsg").css("height") +")");
   
   $("[data-player=turn]").text($("[data-place=player] li").first().children().first().text());
+  ifComputer();
 });
 
 // Player Landed/Missed Confirmed Trick
@@ -755,6 +752,7 @@ $("[data-confirm=land]").click(function() {
     }
   }
   landedSound();
+  ifComputer();
 });
 $("[data-confirm=miss]").click(function() {
   playerName = $("[data-player=turn").text();
@@ -815,6 +813,7 @@ $("[data-confirm=miss]").click(function() {
     }
   }
   missedSound();
+  ifComputer();
 });
 
 // Animate button on click

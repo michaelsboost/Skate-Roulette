@@ -19,7 +19,7 @@ setInterval(countDown, 25);
 // After 3 minutes ask a donation = 180000
 // After 5 minutes ask a donation = 300000
 setTimeout(function() {
-  alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BSYGA2RB5ZJCC" target="_blank"><img src="../imgs/donate.png"></a>', function() {
+  alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.me/mikethedj4" target="_blank"><img src="../imgs/donate.png"></a>', function() {
     location.reload();
   }).set("basic", true);
 }, 300000);
@@ -89,6 +89,7 @@ var trickNumber = 0,
       "360",
       "sex change",
       "manual",
+      "revert",
       "WildCard (Player chooses trick)"
     ],
     Trick3 = [
@@ -135,29 +136,19 @@ var trickNumber = 0,
       }
     },
     landedSound   = function() {
-      if (window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/skateroulette.html") {
-        audioElement.setAttribute("src", "../media/landed.mp3");
-        audioElement.play();
-      } else {
-        audioElement.setAttribute("src", "../../media/landed.mp3");
-        audioElement.play();
-      }
+      audioElement.setAttribute("src", "../media/landed.mp3");
+      audioElement.play();
     },
     missedSound   = function() {
-      if (window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/skateroulette.html") {
-        audioElement.setAttribute("src", "../media/missed.mp3");
-        audioElement.play();
-      } else {
-        audioElement.setAttribute("src", "../../media/missed.mp3");
-        audioElement.play();
-      }
+      audioElement.setAttribute("src", "../media/missed.mp3");
+      audioElement.play();
     },
     victorySound  = function() {
       if (window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/skateroulette.html") {
         audioElement.setAttribute("src", "../media/youwin-man.mp3");
         audioElement.play();
       } else {
-        audioElement.setAttribute("src", "../../media/youwin-man.mp3");
+        audioElement.setAttribute("src", "../media/youwin-man.mp3");
         audioElement.play();
       }
     };
