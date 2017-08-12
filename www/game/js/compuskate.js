@@ -609,13 +609,8 @@ var trickNumber = 0,
       audioElement.play();
     },
     victorySound  = function() {
-      if (window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/skateroulette.html") {
-        audioElement.setAttribute("src", "../media/youwin-man.mp3");
-        audioElement.play();
-      } else {
-        audioElement.setAttribute("src", "../../media/youwin-man.mp3");
-        audioElement.play();
-      }
+      audioElement.setAttribute("src", "../media/youwin-man.mp3");
+      audioElement.play();
     },
     ifComputer    = function() {
       if ($("[data-player=turn]").text() === "computer") {

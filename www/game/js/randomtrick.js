@@ -639,16 +639,6 @@ $("input[name=difficulty]").on("change", function() {
   return false;
 }).trigger("change");
 
-// How To Play
-$("[data-action=howto]").click(function() {
-  var msg1 = "S.K.A.T.E. similar to H.O.R.S.E. in basketball.<br>",
-      msg2 = "Player will be given a random trick to do if player lands trick others have to do that trick.<br>",
-      msg3 = "If the other players fail they receive a letter.<br>",
-      msg4 = "Once a player has the letters S.K.A.T.E. they are out of the game.<br>",
-      msg5 = "The last remaining player wins.";
-  alertify.alert("<h2 class='tl'>"+ msg1 + msg2 + msg3 + msg4 + msg5 +"</h2>").set("basic", true);
-});
-
 // Confirm Difficulty
 $("[data-confirm=difficulty]").click(function() {
   if ( !$("input[name=difficulty]").is(":checked") ) {
