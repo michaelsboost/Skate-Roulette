@@ -594,16 +594,8 @@ var trickNumber = 0,
       "Kickflip, Primo, flip out",
       "Kickflip, Rimo, flip out"
     ],
-    playerName, playerStats, Winner,
-    playerSTR, playerC, playerL,
-    WinnerSTR, WinnerC, WinnerL,
     audioElement  = document.createElement("audio"),
     audioElement2 = document.createElement("audio"),
-    hasPlayers    = function() {
-      if ( $("[data-place=player]").html() === "" ) {
-        $("[data-confirm=players]").addClass("hide");
-      }
-    },
     landedSound   = function() {
       if (window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/skateroulette.html") {
         audioElement.setAttribute("src", "../media/landed.mp3");
@@ -619,15 +611,6 @@ var trickNumber = 0,
         audioElement.play();
       } else {
         audioElement.setAttribute("src", "../../media/missed.mp3");
-        audioElement.play();
-      }
-    },
-    victorySound  = function() {
-      if (window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/skateroulette.html") {
-        audioElement.setAttribute("src", "../media/youwin-man.mp3");
-        audioElement.play();
-      } else {
-        audioElement.setAttribute("src", "../../media/youwin-man.mp3");
         audioElement.play();
       }
     };
@@ -681,149 +664,30 @@ $("[data-confirm=difficulty]").click(function() {
   if ( !$("input[name=difficulty]").is(":checked") ) {
     alertify.error("No difficulty selected");
   } else {
-    $(".difficulty").slideUp(250);
-    $("[data-area=players]").delay(250).fadeIn(function() {
-      $("input[type=text]:visible").focus();
+    $(".difficulty").fadeOut(250);
+    $("[data-game=on]").delay(350).fadeIn(function() {
+      $(".table").css("height", "calc(100% - "+ $(".topmsg").css("height") +")");
     });
   }
 });
 
-// Add Players
-$("[data-add=player]").on("keyup", function(e) {
-  if (e.which === 13) {
-    if (this.value === "") {
-      if ($("[data-place=player]").html() === "") {
-        alertify.error("Error: couldn't detect name!");
-      } else {
-        $("[data-confirm=players]").trigger("click");
-      }
-    } else {
-      $("[data-place=player]").append("<li style='display:none;'><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
-      $("[data-place=player] li").last().slideDown();
-      $("[data-confirm=players]").removeClass("hide");
-      this.value = "";
-
-      $("[data-remove=player]").on("click", function() {
-        $(this).parent().delay(300).slideUp(function() {
-          $(this).remove();
-        });
-        hasPlayers();
-      });
-      hasPlayers();
-    }
-  }
-});
-
-// Confirm Players
-$("[data-confirm=players]").click(function() {
-  if ( $("[data-add=player]").val() ) {
-    $("[data-place=player]").append("<li style='display:none;'><span data-player='"+ this.value +"'>"+ this.value +"</span><span data-count='player'></span><button class='pointer' data-remove='player'><i class='fa fa-times'></i></button></li>");
-    $("[data-place=player] li").last().slideDown();
-    $("[data-add=player]").val("");
-  }
-  $("[data-place=player]").randomize("li");
-  
-  $(this).fadeOut();
-  $("[data-add=player]").fadeOut();
-  $("[data-display=players]").addClass("invisible");
-  $("[data-game=on]").fadeIn().removeClass("hide");
-  
-  $(".table").css("height", "calc(100% - "+ $(".topmsg").css("height") +")");
-  
-  $("[data-player=turn]").text($("[data-place=player] li").first().children().first().text());
-});
-
 // Player Landed/Missed Confirmed Trick
 $("[data-confirm=land]").click(function() {
-  playerName = $("[data-player=turn").text();
-  playerStats = $("[data-player="+ playerName +"]").next();
-  
   if ( !$(".card-flipped").is(":visible") ) {
     alertify.message("It appears you haven't flipped any cards yet!");
     return false;
   } else {
-    if ( !$(".followTrick").is(":visible") ) {
-      $("[data-player="+ $("[data-player=turn]").text() +"]").addClass("followTrick");
-    }
-
-    if ($("[data-player="+ playerName +"]").parent().next().is(":visible")) {
-      $("[data-player=turn]").text($("[data-player="+ playerName +"]").parent().next().children().first().text());
-      $("[data-player=points]").text($("[data-player="+ playerName +"]").parent().next().children().first().next().text());
-      if ($("[data-player="+ playerName +"]").parent().next().children().first().hasClass("followTrick")) {
-        $("input[name=difficulty]").trigger("change");
-        trickNumber = parseInt($("[data-trick=attempts]").text());
-        $("[data-trick=attempts]").text(trickNumber + 1);
-      }
-    } else {
-      $("[data-player=turn]").text($("[data-place=player] li").first().children().first().text());
-      $("[data-player=points]").text($("[data-place=player] li").first().children().first().next().text());
-      if ($("[data-place=player] li").first().children().first().hasClass("followTrick")) {
-        $("input[name=difficulty]").trigger("change");
-        trickNumber = parseInt($("[data-trick=attempts]").text());
-        $("[data-trick=attempts]").text(trickNumber + 1);
-      }
-    }
+    $("input[name=difficulty]").trigger("change");
+    trickNumber = parseInt($("[data-trick=attempts]").text());
+    $("[data-trick=attempts]").text(trickNumber + 1);
   }
   landedSound();
 });
 $("[data-confirm=miss]").click(function() {
-  playerName = $("[data-player=turn").text();
-  playerStats = $("[data-player="+ playerName +"]").next();
-
-  if (!$(".followTrick").is(":visible")) {
-    $("input[name=difficulty]").trigger("change");
-    trickNumber = parseInt($("[data-trick=attempts]").text());
-    $("[data-trick=attempts]").text(trickNumber + 1);
-  } else {
-    if (playerStats.text() === "") {
-      playerStats.text("S.");
-    } else if (playerStats.text() === "S.") {
-      playerStats.text("S.K.");
-    } else if (playerStats.text() === "S.K.") {
-      playerStats.text("S.K.A.");
-    } else if (playerStats.text() === "S.K.A.") {
-      playerStats.text("S.K.A.T.");
-    } else if (playerStats.text() === "S.K.A.T.") {
-      playerStats.text("S.K.A.T.E.");
-      $("[data-player="+ playerName +"]").parent().remove();
-      playerSTR = playerName;
-      playerC = playerSTR.substr(0, 1).toUpperCase();
-      playerL = playerSTR.substr(1, playerSTR.length).toLowerCase();
-      playerSTR = playerC + playerL;
-      alertify.message(playerSTR + " is out of the game");
-      
-      if ($("[data-place=player] li:visible").length == 1) {
-        WinnerSTR = $("[data-place=player] li").children().first().text();
-        WinnerC = WinnerSTR.substr(0, 1).toUpperCase();
-        WinnerL = WinnerSTR.substr(1, WinnerSTR.length).toLowerCase();
-        Winner = WinnerC + WinnerL;
-        victorySound();
-        //alertify.alert('<img src="../imgs/winner.png" style="width: 72%;"><img src="../imgs/cup.svg" style="width: 50%;"><h1>'+ Winner +'! <br>Won The Game!</h1>').set("basic", true);
-        alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.me/mikethedj4" target="_blank"><img src="../imgs/donate.png"></a>', function() {
-          location.reload();
-        }).set("basic", true);
-      }
-    }
-  }
-
-  // playerStats.text( parseInt(playerStats.text()) - 1 );
-  if ($("[data-player="+ playerName +"]").parent().next().is(":visible")) {
-    $("[data-player=turn]").text($("[data-player="+ playerName +"]").parent().next().children().first().text());
-    $("[data-player=points]").text($("[data-player="+ playerName +"]").parent().next().children().first().next().text());
-    if ($("[data-player="+ playerName +"]").parent().next().children().first().hasClass("followTrick")) {
-      $("input[name=difficulty]").trigger("change");
-      trickNumber = parseInt($("[data-trick=attempts]").text());
-      $("[data-trick=attempts]").text(trickNumber + 1);
-    }
-  } else {
-    $("[data-player=turn]").text($("[data-place=player] li").first().children().first().text());
-    $("[data-player=points]").text($("[data-place=player] li").first().children().first().next().text());
-    if ($("[data-place=player] li").first().children().first().hasClass("followTrick")) {
-      $("input[name=difficulty]").trigger("change");
-      trickNumber = parseInt($("[data-trick=attempts]").text());
-      $("[data-trick=attempts]").text(trickNumber + 1);
-    }
-  }
+  $("input[name=difficulty]").trigger("change");
+  trickNumber = parseInt($("[data-trick=attempts]").text());
+  $("[data-trick=attempts]").text(trickNumber + 1);
+  
   missedSound();
 });
 
