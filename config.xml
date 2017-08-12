@@ -39,7 +39,6 @@
   <preference name="ios-statusbarstyle" value="black-opaque"/>
 
   <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
-  <gap:plugin name="cordova-plugin-network-information" source="npm" />
   <gap:plugin name="cordova-plugin-whitelist" source="npm" />
 
   <access origin="*"/>
