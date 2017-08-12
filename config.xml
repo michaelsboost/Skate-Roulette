@@ -4,7 +4,7 @@
   id          = "com.michael.skateroulette"
   version     = "0.0.1"
   versionCode = "1">
-  <name>S.K.A.T.E. Roulette</name>
+  <name>Skate Roulette</name>
   <description>
     A fun and interactive skateboarding based card game.
   </description>
@@ -43,7 +43,7 @@
 
   <access origin="*"/>
 
-  <preference name="phonegap-version" value="cli-6.5.0" />
+  <preference name="phonegap-version" value="cli-7.0.1" />
   <preference name="android-minSdkVersion" value="7" />
   <preference name="android-targetSdkVersion" value="19" />
 
