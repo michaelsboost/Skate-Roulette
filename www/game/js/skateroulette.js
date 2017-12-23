@@ -19,7 +19,7 @@ setInterval(countDown, 25);
 // After 3 minutes ask a donation = 180000
 // After 5 minutes ask a donation = 300000
 setTimeout(function() {
-  alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.me/mikethedj4" target="_blank"><img src="../imgs/donate.png"></a>', function() {
+  alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.com/cgi-bin/webscr?business=mikethedj4%40yahoo.com&cmd=_xclick&amount=5.0&item_name=Donation&currency_code=USD" target="_blank"><img src="../imgs/donate.png"></a>', function() {
     location.reload();
   }).set("basic", true);
 }, 300000);

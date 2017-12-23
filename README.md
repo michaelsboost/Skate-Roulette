@@ -2,7 +2,7 @@
 A fun and interactive skateboarding based card game.
 
 ### Version
-0.0.1
+0.0.2
 
 ### Tech
 
@@ -44,4 +44,4 @@ You can submit a pull request or simply share the project :)
 
 Of course Skate Roulette is free and open source, so you can always fork the project and have fun :)
 
-If Skate Roulette was at all helpful for you. You can show your appreciation by [Donating via SquareCash](https://cash.me/$mschwar4) and/or [PayPal](https://www.paypal.me/mikethedj4)
+If Skate Roulette was at all helpful for you. You can show your appreciation by [Donating via SquareCash](https://cash.me/$michaelsboost) and/or [PayPal](https://www.paypal.com/cgi-bin/webscr?business=mikethedj4%40yahoo.com&cmd=_xclick&amount=5.0&item_name=Donation&currency_code=USD)

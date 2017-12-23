@@ -782,7 +782,7 @@ $("[data-confirm=miss]").click(function() {
         Winner = WinnerC + WinnerL;
         victorySound();
         //alertify.alert('<img src="../imgs/winner.png" style="width: 72%;"><img src="../imgs/cup.svg" style="width: 50%;"><h1>'+ Winner +'! <br>Won The Game!</h1>').set("basic", true);
-        alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.me/mikethedj4" target="_blank"><img src="../imgs/donate.png"></a>', function() {
+        alertify.alert('<h1>Help keep this free!</h1><br><a href="https://www.paypal.com/cgi-bin/webscr?business=mikethedj4%40yahoo.com&cmd=_xclick&amount=5.0&item_name=Donation&currency_code=USD" target="_blank"><img src="../imgs/donate.png"></a>', function() {
           location.reload();
         }).set("basic", true);
       }
