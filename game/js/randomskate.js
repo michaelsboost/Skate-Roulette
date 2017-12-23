@@ -14,7 +14,7 @@ var counter     = 133,
       }
     };
 
-//setInterval(countDown, 25);
+setInterval(countDown, 25);
 
 // Plugins
 (function($) {
