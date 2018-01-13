@@ -22,19 +22,19 @@ Skate Roulette is a free and open source web application; *soon to be released f
 
 ### Free Software, Hell Yeah!
 
-- [kodeWeave](http://mikethedj4.github.io/kodeWeave/)
-- [WebDGap](http://mikethedj4.github.io/WebDGap/)
+- [kodeWeave](http://michaelsboost.github.io/kodeWeave/)
+- [WebDGap](http://michaelsboost.github.io/WebDGap/)
 - [AngularJS](http://angularjs.org/)
 - [jQuery](http://jquery.com/)
 - [io.js](https://iojs.org/en/index.html)
 - [node.js](http://nodejs.org/)
 - [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 - [Poly UI Kit](https://github.com/Guilh/Poly)
-- [CodePen](http://codepen.io/mikethedj4)
+- [CodePen](http://codepen.io/michaelsboost)
 
 ### Author
 
-- [michael schwartz](http://mikethedj4.github.io/)
+- [michael schwartz](http://michaelsboost.github.io/)
 
 ### Development
 
@@ -44,4 +44,4 @@ You can submit a pull request or simply share the project :)
 
 Of course Skate Roulette is free and open source, so you can always fork the project and have fun :)
 
-If Skate Roulette was at all helpful for you. You can show your appreciation by [Donating via SquareCash](https://cash.me/$mschwar4) and/or [PayPal](https://www.paypal.me/mikethedj4)
+If Skate Roulette was at all helpful for you. You can show your appreciation by [Donating via SquareCash](https://cash.me/$michaelsboost) and/or [PayPal](https://www.paypal.me/mikethedj4)
