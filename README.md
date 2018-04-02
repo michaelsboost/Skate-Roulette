@@ -38,9 +38,7 @@ Skate Roulette is a free and open source web application; *soon to be released f
 
 ### Development
 
-Want to contribute? Great!  
-
-You can submit a pull request or simply share the project :)
+As of April 2, 2018 Skate Roulette's development is officially discontinued.
 
 Of course Skate Roulette is free and open source, so you can always fork the project and have fun :)
 
