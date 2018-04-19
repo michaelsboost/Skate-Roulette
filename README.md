@@ -1,6 +1,8 @@
 # Skate Roulette
 A fun and interactive skateboarding based card game.
 
+![](https://raw.githubusercontent.com/michaelsboost/Skate-Roulette/gh-pages/screenshot.png)
+
 ### Version
 0.0.1
 
@@ -18,7 +20,8 @@ MIT
 
 ### Availability
 
-Skate Roulette is a free and open source web application; *soon to be released for mobile!*
+[Android](https://play.google.com/store/apps/details?id=com.michael.skateroulette): *Deprecated*
+[Web Application](http://michaelsboost.github.io/Skate-Roulette/game/): *Deprecated*
 
 ### Free Software, Hell Yeah!
 
