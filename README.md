@@ -20,8 +20,8 @@ MIT
 
 ### Availability
 
-[Android](https://play.google.com/store/apps/details?id=com.michael.skateroulette): *Deprecated*
-[Web Application](http://michaelsboost.github.io/Skate-Roulette/game/): *Deprecated*
+[Android](https://play.google.com/store/apps/details?id=com.michael.skateroulette): *Deprecated*  
+[Web Application](http://michaelsboost.github.io/Skate-Roulette/game/): *Deprecated*  
 
 ### Free Software, Hell Yeah!
 
