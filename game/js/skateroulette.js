@@ -136,7 +136,7 @@ var trickNumber = 0,
       }
     },
     landedSound   = function() {
-      if (window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/skateroulette.html") {
+      if (window.location.toString().split(/\?|#/)[0] === "https://michaelsboost.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://michaelsboost.github.io/Skate-Roulette/game/skateroulette.html") {
         audioElement.setAttribute("src", "../media/landed.mp3");
         audioElement.play();
       } else {
@@ -145,7 +145,7 @@ var trickNumber = 0,
       }
     },
     missedSound   = function() {
-      if (window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/skateroulette.html") {
+      if (window.location.toString().split(/\?|#/)[0] === "https://michaelsboost.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://michaelsboost.github.io/Skate-Roulette/game/skateroulette.html") {
         audioElement.setAttribute("src", "../media/missed.mp3");
         audioElement.play();
       } else {
@@ -154,7 +154,7 @@ var trickNumber = 0,
       }
     },
     victorySound  = function() {
-      if (window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://mikethedj4.github.io/Skate-Roulette/game/skateroulette.html") {
+      if (window.location.toString().split(/\?|#/)[0] === "https://michaelsboost.github.io/Skate-Roulette/game/randomskate.html" || window.location.toString().split(/\?|#/)[0] === "https://michaelsboost.github.io/Skate-Roulette/game/skateroulette.html") {
         audioElement.setAttribute("src", "../media/youwin-man.mp3");
         audioElement.play();
       } else {
