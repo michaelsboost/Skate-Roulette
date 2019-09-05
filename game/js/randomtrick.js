@@ -597,11 +597,11 @@ var trickNumber = 0,
     audioElement  = document.createElement("audio"),
     audioElement2 = document.createElement("audio"),
     landedSound   = function() {
-      audioElement.setAttribute("src", "./media/landed.mp3");
+      audioElement.setAttribute("src", "https://michaelsboost.com/Skate-Roulette/media/landed.mp3");
       audioElement.play();
     },
     missedSound   = function() {
-      audioElement.setAttribute("src", "./media/missed.mp3");
+      audioElement.setAttribute("src", "https://michaelsboost.com/Skate-Roulette/media/missed.mp3");
       audioElement.play();
     };
 
