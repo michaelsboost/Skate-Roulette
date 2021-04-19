@@ -14,6 +14,7 @@ Skate Roulette uses a number of open source projects to work properly:
 * [jQuery](http://jquery.com/) - duh
 * [AlertifyJS](http://alertifyjs.com/) - For the awesome and stylish alert notification dialogs
 * [node-webkit](http://nwjs.io/) - run web apps as desktop apps
+* [freesound](https://freesound.org/) - Audio provided by [freesound.org](https://freesound.org/)
 
 ### License
 MIT
